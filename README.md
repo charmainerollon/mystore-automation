@@ -9,6 +9,7 @@ Select and create .NET 6.0 (Long-term support)
 
 Install basic packages needed for new automation test
 ![image](https://user-images.githubusercontent.com/70570440/162964892-f0ca1934-cea4-4eb0-ad96-605e36bbe980.png)
+
 ![image](https://user-images.githubusercontent.com/70570440/162964912-3acfb1ce-f4d6-4850-8592-7c82882a683e.png)
 
 Created Configuration.json file for use on paramitarization
