@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStoreAutomation", "MyStoreAutomation\MyStoreAutomation.csproj", "{EB9E9F94-74AE-4AD6-A58B-A876308852DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB9E9F94-74AE-4AD6-A58B-A876308852DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB9E9F94-74AE-4AD6-A58B-A876308852DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB9E9F94-74AE-4AD6-A58B-A876308852DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB9E9F94-74AE-4AD6-A58B-A876308852DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CABCA04F-2729-47C5-A721-E75283BA2DDA}
+	EndGlobalSection
+EndGlobal
