@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -20,16 +20,16 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="100.0.4896.6000" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="103.0.5060.5300" />
     <PackageReference Include="Selenium.WebDriver.WaitExtensions" Version="2.0.0" />
     <PackageReference Include="WebDriverManager" Version="2.11.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Configuration.json">
+    <None Update="Settings\Configuration.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="OrdersData.xlsx">
+    <None Update="DataDriven\OrdersData.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

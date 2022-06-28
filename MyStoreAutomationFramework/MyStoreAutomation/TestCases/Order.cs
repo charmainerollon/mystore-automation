@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using MyStoreAutomation.Controller;
+using MyStoreAutomation.Pages;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,19 +16,19 @@ namespace MyStoreAutomation
         public void Order_01_GoToMainPage()
         {
             BrowsersFactory.GoToMainPage();
-            AddToBasketPage.WaitPageTToLoad(10000, "My Store");
+            HomePage.WaitPageTToLoad(10000, "My Store");
         }
 
         [Test, Order(1)]
         public void Order_02_AddOrder()
         {
-            AddToBasketPage.SearchBasket("AddToBasket");
+            Search.SearchBasket("AddToBasket");
         }
 
         [Test, Order(2)]
         public void Order_03_ProceedToCheckout()
         {
-            AddToBasketPage.ProceedToCheckout();
+            OrderPage.ProceedToCheckout();
         }
 
         [Test, Order(3)]
@@ -34,18 +36,18 @@ namespace MyStoreAutomation
         {
             try
             {
-                AddToBasketPage.ValidateShoppingCartSummary("AddToBasket");
+                Validate.ValidateShoppingCartSummary("AddToBasket");
             }
             catch (Exception e)
             {
-                Console.WriteLine(string.Join(Environment.NewLine, AddToBasketPage.Consoles));
+                Console.WriteLine(string.Join(Environment.NewLine, Validate.Consoles));
             }
         }
 
         [Test, Order(4)]
         public void Order_05_Edit_ShoppingCartSummary()
         {
-           AddToBasketPage.EditShoppingCartSummary("3");            
+           CheckoutPage.EditShoppingCartSummary("3");            
         }
 
         [Test, Order(5)]
@@ -53,11 +55,11 @@ namespace MyStoreAutomation
         {
             try
             {
-                AddToBasketPage.ValidateShoppingCartSummary("EditToBasket");
+                Validate.ValidateShoppingCartSummary("EditToBasket");
             }
             catch (Exception e)
             {
-                Console.WriteLine(string.Join(Environment.NewLine, AddToBasketPage.Consoles));
+                Console.WriteLine(string.Join(Environment.NewLine, Validate.Consoles));
             }            
         }
     }

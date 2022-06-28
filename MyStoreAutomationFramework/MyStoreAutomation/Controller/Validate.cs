@@ -1,18 +1,15 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using Selenium.WebDriver.WaitExtensions;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace MyStoreAutomation
+namespace MyStoreAutomation.Controller
 {
-    public class AddToBasketPage
+    public class Validate
     {
         public static String[] getConsole = null;
         public static String[] Consoles
@@ -20,83 +17,9 @@ namespace MyStoreAutomation
             get { return getConsole; }
         }
 
-        public static void WaitPageTToLoad(int timeout, string pageTitle)
-        {
-            BrowsersFactory.GetDriver.Wait(timeout).ForPage().ReadyStateComplete();
-            BrowsersFactory.GetDriver.Wait(timeout).ForPage().TitleToEqual(pageTitle);
-        }
-
-        public static void SearchOrder(string search_value)
-        {
-            BrowsersFactory.GetDriver.FindElement(By.Id("search_query_top")).SendKeys(search_value);
-            BrowsersFactory.GetDriver.FindElement(By.Name("submit_search")).Click();
-            AddToBasketPage.WaitPageTToLoad(10000, "Search - My Store");
-        }
-
-        public static void SelectOrder(string price_value, string color_value, string size_value, string quantity_value)
-        {
-            BrowsersFactory.GetDriver.FindElement(By.XPath("//*[contains(@class, 'product-price')][contains(text(), '" + price_value + "')]//ancestor::*[contains(@class, 'right-block')]//*[contains(@class, 'available-now')]")).Click();
-            Thread.Sleep(2000);
-            BrowsersFactory.GetDriver.FindElement(By.XPath(" //*[contains(@class, 'product-price')][contains(text(), '" + price_value + "')]//ancestor::*[contains(@class, 'right-block')]//*[text() ='More']")).Click();
-            AddToBasketPage.WaitPageTToLoad(10000, "Printed Summer Dress - My Store");
-
-            BrowsersFactory.GetDriver.FindElement(By.Id("quantity_wanted")).Clear();
-            BrowsersFactory.GetDriver.FindElement(By.Id("quantity_wanted")).SendKeys(quantity_value);
-
-            SelectElement oSelect = new SelectElement(BrowsersFactory.GetDriver.FindElement(By.Id("group_1")));
-            oSelect.SelectByText(size_value);
-            
-
-            BrowsersFactory.GetDriver.FindElement(By.XPath("//ul[@id='color_to_pick_list']//li//*[@name='" + color_value + "']")).Click();
-        }
-
-        public static void AddToCart()
-        {
-            BrowsersFactory.GetDriver.FindElement(By.XPath("//*[contains(text(), 'Add to cart')]")).Click();
-
-            BrowsersFactory.WaitForElement("IconOk")
-                .Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[contains(@class, 'icon-ok')]")));
-
-            BrowsersFactory.WaitForElement("ProccedToCheckout")
-                .Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[contains(@class, 'button-container')]//*[contains(text(), 'Proceed to checkout')]")));
-        }
-
-        public static void ProceedToCheckout()
-        {
-            BrowsersFactory.GetDriver.FindElement(By.XPath("//*[contains(@class, 'button-container')]//*[contains(text(), 'Proceed to checkout')]")).Click();
-
-            AddToBasketPage.WaitPageTToLoad(10000, "Order - My Store");
-        }
-
-        public static void SearchBasket(string scenario)
-        {
-            DataTable oderTable = ExcelDataAccess.ExcelToDataTable("OrdersData.xlsx", scenario);
-
-            foreach (DataRow orderRow in oderTable.Rows)
-            {
-                string search_value = orderRow["ProductName"].ToString();
-                string price_value = orderRow["PriceValue"].ToString();
-                string color_value = orderRow["Color"].ToString();
-                string size_value = orderRow["Size"].ToString();
-                string quantity_value = orderRow["Quantity"].ToString();
-
-                SearchOrder(search_value);
-                SelectOrder(price_value, color_value, size_value, quantity_value);
-                AddToCart();
-            }          
-        }          
-        
-        public static void EditShoppingCartSummary(string qtyValue)
-        {
-            BrowsersFactory.GetDriver.FindElement(By.XPath("//*[contains(@class, 'cart_quantity_input')]")).Clear();
-            BrowsersFactory.GetDriver.FindElement(By.XPath("//*[contains(@class, 'cart_quantity_input')]")).SendKeys(qtyValue);
-
-            Thread.Sleep(10000);
-        }
-
         public static void ValidateShoppingCartSummary(string scenario)
         {
-            DataTable oderTable = ExcelDataAccess.ExcelToDataTable("OrdersData.xlsx", scenario);
+            DataTable oderTable = ExcelDataAccess.ExcelToDataTable("DataDriven\\OrdersData.xlsx", scenario);
 
             List<string> list = new List<string>();
             List<string> cwList = new List<string>();
@@ -187,8 +110,5 @@ namespace MyStoreAutomation
             }
 
         }
-
     }
 }
-
-

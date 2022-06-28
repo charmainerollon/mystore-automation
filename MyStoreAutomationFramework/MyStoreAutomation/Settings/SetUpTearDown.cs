@@ -9,15 +9,14 @@ namespace MyStoreAutomation
         [OneTimeSetUp]
         public void BeforeTest()
         {
-
-            BrowsersFactory.LoadApplication();
-           
+            BrowsersFactory.LoadApplication();           
         }
 
         [OneTimeTearDown]
         public void AfterTest()
         {
-            Assert.Pass();
+            BrowsersFactory.GetDriver.Close();
+            BrowsersFactory.GetDriver.Quit();
         }
 
     }
