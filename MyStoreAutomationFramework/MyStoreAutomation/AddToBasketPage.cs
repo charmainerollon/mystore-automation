@@ -29,6 +29,7 @@ namespace MyStoreAutomation
         public static void SearchOrder(string search_value)
         {
             BrowsersFactory.GetDriver.FindElement(By.Id("search_query_top")).SendKeys(search_value);
+            Thread.Sleep(3000);
             BrowsersFactory.GetDriver.FindElement(By.Name("submit_search")).Click();
             AddToBasketPage.WaitPageTToLoad(10000, "Search - My Store");
         }
