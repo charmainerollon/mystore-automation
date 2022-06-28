@@ -40,7 +40,7 @@ namespace MyStoreAutomation
             }
             catch (Exception e)
             {
-                Console.WriteLine(string.Join(Environment.NewLine, HomePage.Consoles));
+                Console.WriteLine(string.Join(Environment.NewLine, Validate.Consoles));
             }
         }
 
@@ -59,7 +59,7 @@ namespace MyStoreAutomation
             }
             catch (Exception e)
             {
-                Console.WriteLine(string.Join(Environment.NewLine, HomePage.Consoles));
+                Console.WriteLine(string.Join(Environment.NewLine, Validate.Consoles));
             }            
         }
     }

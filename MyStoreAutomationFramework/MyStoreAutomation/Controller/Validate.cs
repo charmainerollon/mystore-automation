@@ -11,7 +11,11 @@ namespace MyStoreAutomation.Controller
 {
     public class Validate
     {
-        private static string[] getConsole;
+        public static String[] getConsole = null;
+        public static String[] Consoles
+        {
+            get { return getConsole; }
+        }
 
         public static void ValidateShoppingCartSummary(string scenario)
         {

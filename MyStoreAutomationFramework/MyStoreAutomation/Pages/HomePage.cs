@@ -14,12 +14,7 @@ using System.Threading.Tasks;
 namespace MyStoreAutomation
 {
     public class HomePage
-    {
-        public static String[] getConsole = null;
-        public static String[] Consoles
-        {
-            get { return getConsole; }
-        }
+    {      
 
         public static void WaitPageTToLoad(int timeout, string pageTitle)
         {
