@@ -19,7 +19,7 @@ namespace MyStoreAutomation.Controller
 
         public static void ValidateShoppingCartSummary(string scenario)
         {
-            DataTable oderTable = ExcelDataAccess.ExcelToDataTable("OrdersData.xlsx", scenario);
+            DataTable oderTable = ExcelDataAccess.ExcelToDataTable("DataDriven\\OrdersData.xlsx", scenario);
 
             List<string> list = new List<string>();
             List<string> cwList = new List<string>();
