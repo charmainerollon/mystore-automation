@@ -18,7 +18,7 @@ namespace MyStoreAutomation
     {
         private static IWebDriver driver;
 
-        public static JObject configuration = JObject.Parse(File.ReadAllText("Configuration.json"));
+        public static JObject configuration = JObject.Parse(File.ReadAllText("Settings\\Configuration.json"));
         public static void LoadApplication()
         {
             //IWebDriver driver;

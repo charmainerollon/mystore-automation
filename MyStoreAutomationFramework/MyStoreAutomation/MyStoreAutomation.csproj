@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -26,10 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Configuration.json">
+    <None Update="Settings\Configuration.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="OrdersData.xlsx">
+    <None Update="DataDriven\OrdersData.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
